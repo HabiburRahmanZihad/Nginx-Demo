@@ -920,6 +920,35 @@ docker compose down
 
 ---
 
+## Load Balancing — Key Concepts
+
+Load balancing is the process of distributing incoming network traffic across multiple servers so that no single server bears too much demand.
+
+### Why Load Balancing Matters
+
+1. **Distributes traffic across multiple servers** — Incoming requests are spread evenly (or intelligently) across a pool of backend servers, so no single instance handles everything alone.
+
+2. **Prevents server overload** — When traffic spikes, the load balancer ensures each server only receives a manageable share of requests, avoiding crashes or slowdowns caused by resource exhaustion.
+
+3. **Improves performance** — Requests are routed to the least-busy or nearest server, reducing response times and keeping the application feeling fast for every user.
+
+4. **Ensures high availability** — If one server goes down, the load balancer automatically stops sending traffic to it and redirects requests to the remaining healthy servers — no downtime for end users.
+
+5. **Allows horizontal scaling** — New server instances can be added to the pool at any time (without changing the application or DNS) to handle growing traffic, making scale-out simple and non-disruptive.
+
+6. **Increases system reliability** — By eliminating single points of failure and spreading risk across multiple nodes, the overall system becomes more resilient to hardware failures, software bugs, and unexpected traffic surges.
+
+```
+Without Load Balancing:          With Load Balancing:
+
+  Client ──► Single Server         Client ──► Load Balancer ──► Server 1
+             (bottleneck,                                    ──► Server 2
+              single point                                   ──► Server 3
+              of failure)                    (resilient, scalable, fast)
+```
+
+---
+
 <div align="center">
   <p style="font-size: 1.1em; font-weight: bold;">Habibur Rahman Zihad</p>
   <p style="color: gray; font-size: 0.95em;">Full-Stack Developer</p>
